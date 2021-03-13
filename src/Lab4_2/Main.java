@@ -42,7 +42,7 @@ public class Main {
                 int balance = Integer.parseInt(items[2].trim());
                 if ( newCustomer == null ) {
                     System.out.println("No customer for adding account: " + accountNumber);
-                } else {  
+                } else {
                     BankAccount newBankAccount = new BankAccount((accountNumber));
                     newCustomer.addAccount(newBankAccount);
                     newBankAccount.deposit(balance);
