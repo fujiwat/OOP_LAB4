@@ -38,7 +38,6 @@ public class Person {
     public static ArrayList<Person> readFromCSVFile(String fileName) {
         // Open the file
         Scanner scanner;
-        String strLine;
         try {
             scanner = new Scanner(new File(fileName));
         } catch (FileNotFoundException e) {
