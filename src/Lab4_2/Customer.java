@@ -59,7 +59,7 @@ public class Customer {
     }
 
     @Override
-    public String toString() { 
+    public String toString() {
         StringBuffer str = new StringBuffer();
         str.append(firstName + " " + lastName + " accounts:\n");
         if ( getNumAccounts() == 0 ) {

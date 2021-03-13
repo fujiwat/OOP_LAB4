@@ -20,13 +20,15 @@ public class MyArray {
     }
 
     public MyArray(double[] elements) {
-        this.elements = elements;           // ??: is it correct?
-        this.length = elements.length;      // ??: is it correct?
+        this.elements = new double[elements.length];
+        System.arraycopy(elements, 0, this.elements, 0, elements.length);
+        this.length = elements.length;
     }
 
     public MyArray(MyArray myArray) {
         this.length = myArray.length;
-        this.elements = myArray.elements; // ??: maybe wrong
+        this.elements = new double[myArray.length];
+        System.arraycopy(myArray.elements, 0, this.elements, 0, myArray.length);
     }
 
     public MyArray(String fileName) {
@@ -83,9 +85,10 @@ public class MyArray {
                 length = items.length;
             }
             // ??:  following 3 lines are works but I want to know more good solution.
-            this.elements = new double[itemsLength];
-            System.arraycopy(itemD, 0, this.elements, 0, itemsLength);
-            this.length = itemsLength;
+            MyArray(itemD);
+//            this.elements = new double[itemsLength];
+//            System.arraycopy(itemD, 0, this.elements, 0, itemsLength);
+//            this.length = itemsLength;
             lineOk = true;
         }
         if (lineOk == false) {
@@ -112,8 +115,8 @@ public class MyArray {
     public double stddev() {
         double total_x_m = 0;
         double mean = this.mean();
-        for (int i=0; i<this.length; i++){
-             total_x_m += (this.elements[i] - mean) * (this.elements[i] - mean);
+        for (int i = 0; i < this.length; i++) {
+            total_x_m += (this.elements[i] - mean) * (this.elements[i] - mean);
         }
         return Math.sqrt(total_x_m / this.length);
     }
@@ -121,6 +124,7 @@ public class MyArray {
     public void sort() {
         Arrays.sort(this.elements);
     }
+
     public void print(String header) {
         System.out.print(header + ":  ");
         for (int i = 0; i < this.length; i++) {
