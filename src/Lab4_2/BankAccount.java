@@ -1,6 +1,6 @@
 package Lab4_2;
 
-public class BankAccount { 
+public class BankAccount {
     private String accountNumber;
     private double balance;  // default value = 0.
 
